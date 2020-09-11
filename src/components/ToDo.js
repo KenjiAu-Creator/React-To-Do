@@ -21,10 +21,18 @@ function ToDo() {
     // Turn the array into a map with key-value pairs, easy to output JSX this way.
   ].map( (toDo, index) => <li key={index} >{toDo.task}</li>) );
 
+
+  const addNewTask = event => {
+    // Don't let the page reload for submission! 
+    event.preventDefault();
+
+    // TODO: add new task to list; output in render
+  }
+
   // We use "return" for our render, in a component.
   return (
     <> 
-      <form>
+      <form onSubmit={addNewTask()} >
         <label htmlFor="task">New Task:</label>&nbsp;
         <input 
           type="text"
