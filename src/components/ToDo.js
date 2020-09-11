@@ -13,6 +13,14 @@ function ToDo() {
   
   const [newTask, setNewTask] = useState( 'default' ); // Arguement in "useState" is the default value for this state.
 
+  // Set up state for our To Do list items.
+  const [toDos, setToDos] = useState([  // Default list of to do items.
+    { task: "Buy milk" },
+    { task: "Learn React" },
+    { task: "Find out what Redux is" }
+    // Turn the array into a map with key-value pairs, easy to output JSX this way.
+  ].map( (toDo, index) => <li key={index} >{toDo.task}</li>) );
+
   // We use "return" for our render, in a component.
   return (
     <> 
@@ -29,7 +37,9 @@ function ToDo() {
         <input type="submit" value="Add Task" />
       </form>
       <ul>
-        <h2>{newTask}</h2>
+        <h1>Current Task is:</h1>
+        <p>{newTask}</p>
+        {toDos}
       </ul>
     </>
   );
